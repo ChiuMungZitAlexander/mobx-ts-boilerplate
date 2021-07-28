@@ -1,0 +1,25 @@
+## 通用
+.DS_Store
+node_modules
+*.log
+logs
+log
+
+# 构建产物
+dist
+
+## 脚手架脚本目录
+scaffold
+
+# 不必检查的后缀
+*.md
+*.ejs
+*.yml
+*ignore
+
+# i18n
+i18n/
+
+# 忽略的文件
+package-lock.json
+src/assets
