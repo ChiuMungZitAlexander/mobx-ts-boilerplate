@@ -1,12 +1,11 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
 
-const { REACT_APP_API_URL } = process.env;
-
 module.exports = (app) => {
   app.use(
-    '/auth',
+    // proxy URL
+    '/',
     createProxyMiddleware({
-      target: REACT_APP_API_URL,
+      // target: REACT_APP_API_URL,
       secure: false,
       logLevel: 'debug',
       onError: (err, req, res) => {

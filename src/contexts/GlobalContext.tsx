@@ -6,10 +6,13 @@ import { ProviderProps } from 'src/types';
 
 const globalStore = new GlobalStore();
 
-export const GlobalContext = createContext<GlobalStore>(null);
+export const GlobalContext = createContext<GlobalStore>({
+  isLoggedIn: false,
+  setIsLoggedIn: (newIsLoggedIn) => newIsLoggedIn,
+});
 
-export const GlobalProvider = ({ children }: ProviderProps) => (
+export const GlobalProvider = ({ children }: ProviderProps): JSX.Element => (
   <GlobalContext.Provider value={globalStore}>{children}</GlobalContext.Provider>
 );
 
-export const useGlobalStore = () => useContext(GlobalContext);
+export const useGlobalStore = (): GlobalStore => useContext(GlobalContext);

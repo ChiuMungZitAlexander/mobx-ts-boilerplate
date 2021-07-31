@@ -9,7 +9,7 @@ export default class LoginStore {
     });
   }
 
-  setCaptchaNeeded(newCaptchaNeeded: boolean) {
+  setCaptchaNeeded(newCaptchaNeeded: boolean): void {
     this.isCaptchaNeeded = newCaptchaNeeded;
   }
 }

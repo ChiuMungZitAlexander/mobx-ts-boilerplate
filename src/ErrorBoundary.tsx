@@ -8,7 +8,7 @@ type ErrorBoundaryProps = {
  * 错误页面
  */
 class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
-  static getDerivedStateFromError() {
+  static getDerivedStateFromError(): { hasError: boolean } {
     // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
@@ -16,12 +16,12 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
   state = { hasError: false };
 
   // componentDidCatch(error, errorInfo) {
-    // You can also log the error to an error reporting service
+  // You can also log the error to an error reporting service
   // }
 
-  render() {
+  render(): JSX.Element {
     const { children } = this.props;
-    
+
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (

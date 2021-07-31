@@ -1,3 +1,4 @@
+// @ts-check
 import { makeAutoObservable, action, runInAction } from 'mobx';
 
 export default class GlobalStore {
@@ -9,7 +10,7 @@ export default class GlobalStore {
     });
   }
 
-  async setIsLoggedIn(newIsLoggedIn: boolean) {
+  setIsLoggedIn(newIsLoggedIn: boolean): void {
     runInAction(() => {
       this.isLoggedIn = newIsLoggedIn;
     });
