@@ -1,18 +1,23 @@
-// @ts-check
 import { makeAutoObservable, action, runInAction } from 'mobx';
+
+import { logIn as _logIn } from 'src/services/login.service';
 
 export default class GlobalStore {
   isLoggedIn = false;
 
   constructor() {
     makeAutoObservable(this, {
-      setIsLoggedIn: action.bound,
+      logIn: action.bound,
     });
   }
 
-  setIsLoggedIn(newIsLoggedIn: boolean): void {
-    runInAction(() => {
-      this.isLoggedIn = newIsLoggedIn;
+  logIn({ name }: { name: string }): void {
+    runInAction(async () => {
+      const res = await _logIn({ name });
+
+      if (res) {
+        this.isLoggedIn = true;
+      }
     });
   }
 }
