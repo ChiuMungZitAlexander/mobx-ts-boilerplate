@@ -1,9 +1,9 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 
 import ErrorBoundary from 'src/ErrorBoundary';
-import App from 'src/App';
+
+import RouteView from 'src/routes';
 
 import { GlobalProvider } from 'src/contexts/GlobalContext';
 
@@ -15,9 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
       <GlobalProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <RouteView />
       </GlobalProvider>
     </ErrorBoundary>
   </React.StrictMode>,
